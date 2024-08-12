@@ -2,6 +2,11 @@ provider "aws" {
   region = "us-east-1"
 }
 
+module "files" {
+  source = "./files"
+  # Include any variables or outputs needed by the module
+}
+
 # S3 Bucket for CodePipeline Artifacts
 resource "aws_s3_bucket" "codepipeline_bucket" {
   bucket = "asfer-pipeline"
@@ -124,8 +129,8 @@ resource "aws_codepipeline" "pipeline" {
       version          = "1"
       input_artifacts  = ["build_output"]
       configuration = {
-        ClusterName = aws_ecs_cluster.cluster.id
-        ServiceName = aws_ecs_service.backend_1_service.name
+        ClusterName = module.files.aws_ecs_cluster.cluster.id
+        ServiceName = module.files.aws_ecs_service.backend_1_service.name
         FileName    = "imagedefinitions.json"
       }
     }
