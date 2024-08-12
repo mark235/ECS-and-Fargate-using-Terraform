@@ -1,0 +1,49 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform/
+.terraform.lock.hcl
+
+# Crash log files
+crash.log
+
+# Ignore override files as they are usually used to override resources locally and should not be shared
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore tfplan files
+*.tfplan
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# Ignore Docker files
+docker-compose.override.yml
+.dockerignore
+
+# Ignore VSCode settings
+.vscode/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore node_modules if using Node.js for any scripts
+node_modules/
+
+# Ignore Python virtual environments
+venv/
+.env
+__pycache__/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# Ignore IDE-specific files
+.idea/
+*.iml
