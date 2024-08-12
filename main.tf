@@ -4,12 +4,11 @@ provider "aws" {
 
 module "files" {
   source = "./files"
-  # Include any variables or outputs needed by the module
 }
 
-# S3 Bucket for CodePipeline Artifacts
+# Use a unique bucket name to avoid conflicts
 resource "aws_s3_bucket" "codepipeline_bucket" {
-  bucket = "asfer-pipeline"
+  bucket = "asfer-pipeline-unique-id"  # Ensure uniqueness
 }
 
 # IAM Role for CodePipeline
@@ -29,7 +28,7 @@ resource "aws_iam_role" "codepipeline_role" {
 
 resource "aws_iam_role_policy_attachment" "codepipeline_policy_attachment" {
   role       = aws_iam_role.codepipeline_role.name
-  policy_arn = "arn:aws:iam::aws:policy/AWSCodePipelineFullAccess"
+  policy_arn = "arn:aws:iam::aws:policy/AWSCodePipeline_FullAccess"  # Corrected ARN
 }
 
 # IAM Role for CodeBuild
