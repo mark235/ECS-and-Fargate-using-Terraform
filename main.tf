@@ -129,8 +129,8 @@ resource "aws_codepipeline" "pipeline" {
       version          = "1"
       input_artifacts  = ["build_output"]
       configuration = {
-        ClusterName = module.files.aws_ecs_cluster.cluster.id
-        ServiceName = module.files.aws_ecs_service.backend_1_service.name
+        ClusterName = module.files.ecs_cluster_id
+        ServiceName = module.files.backend_1_service_name
         FileName    = "imagedefinitions.json"
       }
     }
