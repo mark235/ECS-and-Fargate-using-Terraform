@@ -296,11 +296,3 @@ output "lb_dns_name" {
 output "target_group_arn_backend" {
   value = aws_lb_target_group.backend.arn
 }
-
-output "backend_1_service_id" {
-  value = aws_ecs_service.backend_1_service.id
-}
-
-output "backend_2_service_id" {
-  value = aws_ecs_service.backend_2_service.id
-}
