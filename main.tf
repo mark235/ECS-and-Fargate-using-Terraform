@@ -91,8 +91,8 @@ resource "aws_codepipeline" "pipeline" {
       output_artifacts = ["source_output"]
       configuration = {
         Owner      = "mark235"
-        Repo       = "ECS-Fargate"
-        Branch     = "main"
+        Repo       = "ECS-pipeline"
+        Branch     = "master"
         OAuthToken = "your-github-token"
       }
     }
